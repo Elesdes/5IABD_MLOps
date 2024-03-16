@@ -1,0 +1,17 @@
+# enable_cache: false
+settings:
+  docker:
+    requirements: requirements_pipeline.txt
+    required_integrations:
+      - sklearn
+    dockerignore: .dockerignore
+
+  model_version:
+    name: sncf_recommender_system
+    version: xgboost
+    description: A ranking model for train ticket
+    tags: ["train_ticket", "recommendation_system", "ranking"]
+
+  steps:
+    model_trainer:
+      enable_cache: false
