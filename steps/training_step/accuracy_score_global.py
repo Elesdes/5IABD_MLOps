@@ -18,7 +18,7 @@ def accuracy_score_global(y_xgb: numpy.ndarray, y_randomforest: numpy.ndarray, y
     :param y_randomforest: The predicted output of the Random Forest model
     :param y_test: The testing dataframe output
     :return:
-    Nothing
+    Double accuracies of XGB and RandomForest
     """
     accuracy_xgb = accuracy_score(y_test, [r for r in y_xgb])
     accuracy_randomforest = accuracy_score(y_test, [q for q in y_randomforest])

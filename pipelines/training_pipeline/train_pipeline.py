@@ -1,15 +1,14 @@
 from zenml import pipeline
-from steps.train_randomforest import train_randomforest
-from steps.train_custom_model import train_custom_model
-from steps.train_xgboost import train_xgboost
-from steps.load_data import load_data
-from steps.plot_data import plot_data
-from steps.data_preprocessing import data_preprocessing
-from steps.accuracy_score_global import accuracy_score_global
-from zenml.integrations.mlflow.steps.mlflow_registry import mlflow_register_model_step
+from steps.training_step.load_data import load_data
+from steps.training_step.data_preprocessing import data_preprocessing
+from steps.training_step.plot_data import plot_data
+from steps.training_step.train_custom_model import train_custom_model
+from steps.training_step.train_randomforest import train_randomforest
+from steps.training_step.train_xgboost import train_xgboost
+from steps.training_step.accuracy_score_global import accuracy_score_global
 
 
-@pipeline(enable_cache=True)
+@pipeline(enable_cache=False, name="Train_pipeline")
 def train_pipeline():
     batch_size = 32
     epochs = 50

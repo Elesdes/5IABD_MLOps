@@ -12,7 +12,6 @@ def load_data() -> tuple[Annotated[pd.DataFrame, "clean_features"], Annotated[pd
     :return:
     The dataset pre-cleaned and the raw dataset
     """
-
-    df = pd.read_csv('../data/emg_all_features_labeled.csv')
-    raw = pd.read_csv('../data/index_finger_motion_raw.csv')
+    df = pd.read_csv('./data/emg_all_features_labeled.csv')
+    raw = pd.read_csv('./data/index_finger_motion_raw.csv')
     return df, raw
