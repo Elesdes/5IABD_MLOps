@@ -29,10 +29,6 @@ def train_custom_model(x_train: pd.DataFrame, y_train: pd.DataFrame, x: pd.DataF
         loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
-    print("-----")
-    print(x.shape)
-    print(x_train.shape)
-    print(y_train.shape)
     history = model_cnn.fit(
         x_train,
         y_train,
@@ -43,15 +39,6 @@ def train_custom_model(x_train: pd.DataFrame, y_train: pd.DataFrame, x: pd.DataF
             tf.keras.callbacks.ReduceLROnPlateau()
         ]
     )
-    """
-    model_cnn.fit(
-        x_train,
-        y_train,
-        validation_split=0.2,
-        batch_size=batch_size,
-        epochs=epochs
-    )
-    """
     # History ne peut pas être passé en l'état puisque ce n'est pas un objet supporté par le framework
     # Il faut penser à le convertir d'une manière ou d'une autre.
     # Il en va de même pour les callbacks et le modèle

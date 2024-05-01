@@ -6,7 +6,7 @@ from zenml import step
 from zenml.integrations.mlflow.steps.mlflow_registry import mlflow_register_model_step
 
 
-@step(enable_cache=True)
+@step(enable_cache=False)
 def train_xgboost(x_train: pd.DataFrame, y_train: pd.DataFrame, x_test: pd.DataFrame) -> tuple[xgb.XGBClassifier, numpy.ndarray]:
     """
     The training step of the XGBoost

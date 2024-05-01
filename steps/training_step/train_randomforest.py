@@ -18,7 +18,7 @@ def fetch_logged_data(run_id: str) -> tuple[dict, dict, dict, list]:
     return data.params, data.metrics, tags, artifacts
 
 
-@step(experiment_tracker=experiment_tracker.name)
+@step() # experiment_tracker=experiment_tracker.name)
 def train_randomforest(x_train: pd.DataFrame, y_train: pd.DataFrame, x_test: pd.DataFrame) -> tuple[RandomForestClassifier, numpy.ndarray]:
     """
     The training step of the Random Forest
@@ -32,8 +32,8 @@ def train_randomforest(x_train: pd.DataFrame, y_train: pd.DataFrame, x_test: pd.
     mlflow.sklearn.autolog()
     run = mlflow.active_run()
     model_randomforest.fit(x_train, y_train)
-    params, metrics, tags, artifacts = fetch_logged_data(run.info.run_id)
+    # params, metrics, tags, artifacts = fetch_logged_data(run.info.run_id)
     y_predicted = model_randomforest.predict(x_test)
-    mlflow.log_param(key="Key", value=params)
-    mlflow.log_metric(key="Training score", value=metrics["training_accuracy_score"])
+    # mlflow.log_param(key="Key", value=params)
+    #mlflow.log_metric(key="Training score", value=metrics["training_accuracy_score"])
     return model_randomforest, y_predicted

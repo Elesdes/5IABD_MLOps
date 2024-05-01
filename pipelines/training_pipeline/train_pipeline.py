@@ -1,5 +1,7 @@
+import zenml
 from zenml import pipeline
-from steps.training_step.load_data import load_data
+# from zenml.config import DockerSettings
+from steps.loader_step.load_data import load_data
 from steps.training_step.data_preprocessing import data_preprocessing
 from steps.training_step.plot_data import plot_data
 from steps.training_step.train_custom_model import train_custom_model
@@ -7,8 +9,17 @@ from steps.training_step.train_randomforest import train_randomforest
 from steps.training_step.train_xgboost import train_xgboost
 from steps.training_step.accuracy_score_global import accuracy_score_global
 
+#docker_settings = DockerSettings(
+#    dockerfile="deepchecks-zenml.Dockerfile",
+#    build_options={
+#        "buildargs": {
+#            "ZENML_VERSION": f"{zenml.__version__}"
+#        },
+#    },
+#)
 
-@pipeline(enable_cache=False, name="Train_pipeline")
+
+@pipeline(enable_cache=False, name="Train_pipeline")#, settings={"docker": docker_settings})
 def train_pipeline():
     batch_size = 32
     epochs = 50
