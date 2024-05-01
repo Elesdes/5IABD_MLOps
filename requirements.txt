@@ -139,6 +139,7 @@ parso==0.8.3
 passlib==1.7.4
 pillow==10.2.0
 platformdirs==4.2.0
+pre-commit
 prometheus-client==0.20.0
 prompt-toolkit==3.0.43
 protobuf==4.25.3
