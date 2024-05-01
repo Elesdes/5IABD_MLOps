@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy
 from typing_extensions import Annotated
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder

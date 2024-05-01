@@ -12,7 +12,7 @@ def plot_data(data: pd.DataFrame) -> None:
     """
     fig, axes = plt.subplots(
         2, 4, figsize=(30, 8), sharex=True, sharey=True
-    )  # ensures that all subplots share the same x-axis and y-axis
+    )
     for i in range(2):
         for j in range(4):
             axes[i][j].plot(data.iloc[:, i * j])

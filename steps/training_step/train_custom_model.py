@@ -1,9 +1,6 @@
-import tensorflow as tf  # building and training neural networks
+import tensorflow as tf
 import pandas as pd
-import typing
-from typing_extensions import Annotated
 from zenml import step
-from zenml.materializers.base_materializer import BaseMaterializer, ArtifactType
 
 
 @step()

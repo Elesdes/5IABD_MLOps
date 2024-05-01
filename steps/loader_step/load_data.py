@@ -15,5 +15,4 @@ def load_data() -> tuple[
     The dataset pre-cleaned and the raw dataset
     """
     df = pd.read_csv("./data/emg_all_features_labeled.csv")
-    raw = pd.read_csv("./data/index_finger_motion_raw.csv")
-    return df, raw
+    return df
