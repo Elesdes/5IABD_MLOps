@@ -7,7 +7,15 @@ from zenml import step
 
 
 @step()
-def data_preprocessing(df: pd.DataFrame) -> tuple[Annotated[pd.DataFrame, "x_train"], Annotated[pd.DataFrame, "x_test"], Annotated[pd.DataFrame, "y_train"], Annotated[pd.core.series.Series, "y_test"], Annotated[pd.DataFrame, "x"]]:
+def data_preprocessing(
+    df: pd.DataFrame,
+) -> tuple[
+    Annotated[pd.DataFrame, "x_train"],
+    Annotated[pd.DataFrame, "x_test"],
+    Annotated[pd.DataFrame, "y_train"],
+    Annotated[pd.core.series.Series, "y_test"],
+    Annotated[pd.DataFrame, "x"],
+]:
     """
     Dataframe preprocessing step.
 
@@ -17,7 +25,9 @@ def data_preprocessing(df: pd.DataFrame) -> tuple[Annotated[pd.DataFrame, "x_tra
     """
     x = df.iloc[:, :80].copy()
     y = df.iloc[:, 80].copy()
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=1)
+    x_train, x_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.25, random_state=1
+    )
     SC = StandardScaler()
     x_train = pd.DataFrame(SC.fit_transform(x_train))
     x_test = pd.DataFrame(SC.transform(x_test))

@@ -14,5 +14,5 @@ from pipelines.training_pipeline.train_pipeline import train_pipeline
 # mdp :
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     train_pipeline()
