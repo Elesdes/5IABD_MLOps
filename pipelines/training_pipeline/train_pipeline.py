@@ -21,5 +21,7 @@ def train_pipeline():
         x_train, y_train, x_test
     )
     train_custom_model(x_train, y_train, x, batch_size, epochs)
-    accuracy_xgb, accuracy_randomforest, message = accuracy_score_global(y_xgboost_predicted, y_randomforest_predicted, y_test)
+    accuracy_xgb, accuracy_randomforest, message = accuracy_score_global(
+        y_xgboost_predicted, y_randomforest_predicted, y_test
+    )
     approved = discord_alerter_ask_step(message)
