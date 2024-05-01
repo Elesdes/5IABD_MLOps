@@ -6,6 +6,6 @@ ipykernel
 scikit-learn
 mlflow
 pre-commit
-discord.py
+discord.py[voice]
 xgboost
 seaborn
