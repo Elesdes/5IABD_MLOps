@@ -1,7 +1,7 @@
 tensorflow[and-cuda]
 pandas
 matplotlib
-zenml
+zenml==0.56.4
 ipykernel
 scikit-learn
 mlflow
