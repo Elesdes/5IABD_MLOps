@@ -26,10 +26,13 @@ def train_custom_model(
     x = tf.keras.layers.Dense(80, activation="relu")(x)
     x = tf.keras.layers.Dropout(0.2)(x)
     outputs = tf.keras.layers.Dense(8, activation="softmax")(x)
+
     model_cnn = tf.keras.Model(inputs, outputs)
+
     model_cnn.compile(
         optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
     )
+
     history = model_cnn.fit(
         x_train,
         y_train,

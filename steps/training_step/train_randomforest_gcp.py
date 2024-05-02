@@ -8,7 +8,7 @@ from zenml import step
 @step()
 def train_randomforest(
     x_train: pd.DataFrame, y_train: pd.DataFrame, x_test: pd.DataFrame
-) -> tuple[RandomForestClassifier, numpy.ndarray]:
+) -> numpy.ndarray:
     """
     The training step of the Random Forest
     :param x_train: The dataframe input for the prediction
@@ -18,6 +18,9 @@ def train_randomforest(
     The Random Forest model and the predicted data from the test dataframe
     """
     model_randomforest = RandomForestClassifier(n_estimators=100, random_state=1)
+
     model_randomforest.fit(x_train, y_train)
+
     y_predicted = model_randomforest.predict(x_test)
-    return model_randomforest, y_predicted
+
+    return y_predicted
