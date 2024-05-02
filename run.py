@@ -1,4 +1,5 @@
 from pipelines.training_pipeline.train_pipeline import train_pipeline
+# from pipelines.training_pipeline.train_pipeline_gcp import train_pipeline
 
 # Il faut dans ZenML : Orchestrator | Artifact Store | model deployer | model registry | Experiment tracker
 # Bonus : Data Validators | Alerters | Step Operators | Annotators

@@ -4,7 +4,7 @@ from zenml.integrations.discord.steps.discord_alerter_ask_step import discord_al
 from steps.loader_step.load_data import load_data
 from steps.training_step.data_preprocessing import data_preprocessing
 from steps.training_step.train_custom_model import train_custom_model
-from steps.training_step.train_randomforest import train_randomforest
+from steps.training_step.train_randomforest_gcp import train_randomforest
 from steps.training_step.train_xgboost import train_xgboost
 from steps.training_step.accuracy_score_global import accuracy_score_global
 
