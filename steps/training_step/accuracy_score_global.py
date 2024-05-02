@@ -20,4 +20,9 @@ def accuracy_score_global(
     accuracy_randomforest = accuracy_score(y_test, [q for q in y_randomforest]) * 100.0
     print("Accuracy for XGB: %.2f%%" % (accuracy_xgb))
     print("Accuracy for RF: %.2f%%" % (accuracy_randomforest))
-    return accuracy_xgb, accuracy_randomforest, "Ended correctly with Accuracy for XGB: %.2f%% and Accuracy for RF: %.2f%%" % (accuracy_xgb * 100.0, accuracy_randomforest * 100.0)
+    return (
+        accuracy_xgb,
+        accuracy_randomforest,
+        "Ended correctly with Accuracy for XGB: %.2f%% and Accuracy for RF: %.2f%%"
+        % (accuracy_xgb * 100.0, accuracy_randomforest * 100.0),
+    )
