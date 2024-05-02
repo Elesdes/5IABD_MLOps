@@ -1,19 +1,28 @@
-from pipelines.training_pipeline.train_pipeline import train_pipeline
-# from pipelines.training_pipeline.train_pipeline_gcp import train_pipeline
+import subprocess
 
-# Il faut dans ZenML : Orchestrator | Artifact Store | model deployer | model registry | Experiment tracker
-# Bonus : Data Validators | Alerters | Step Operators | Annotators
-# Grand Bonus : Test unitaire et de performances
+command = "zenml stack set "
+subprocess.run(command + "DiscordStack", shell=True)
 
-# ZenML s'attend à avoir deux dossiers. L'un avec steps l'autre avec pipeline. Chaque steps a son fichier.
-# Un __init__ est attendu dans chaque dossier.
+from typing import Literal
+from pipelines.training_pipeline.local_train_pipeline import local_train_pipeline
+from pipelines.training_pipeline.gcp_train_pipeline import gcp_train_pipeline
+import click
 
-# Regarder du côté de Manage Artifact, on peut passer des metadonnées tel que la précision
 
-# Compte par défaut de ZenML
-# user : default
-# mdp :
+@click.command()
+@click.option("--pipeline", prompt="Choose your pipeline", required=True)
+def main(pipeline: Literal["local", "gcp"]):
+    command = "zenml stack set "
+    match pipeline:
+        case "local":
+            command += "DiscordStack"
+            subprocess.run(command, shell=True)
+            local_train_pipeline()
+        case "gcp":
+            command += "MLOpsIcarus"
+            subprocess.run(command, shell=True)
+            gcp_train_pipeline()
 
 
 if __name__ == "__main__":
-    train_pipeline()
+    main()
